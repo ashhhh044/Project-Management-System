@@ -1,0 +1,28 @@
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 12.5rem; /* 200px */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .footer p {
+    position: absolute;
+    bottom: 1.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #A8DADC;
+    font-size: 1.125rem;
+    z-index: 1;
+  }
+  .footer-bg {
+    position: absolute;
+    bottom: -2.5rem;
+    left: 0;
+    width: 100%;
+    height: auto;
+    pointer-events: none;
+  }

@@ -1,0 +1,419 @@
+/* 1. Global Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  html {
+    font-family: "Tuffy", sans-serif;
+    background-color: #F1FAEE;
+  }
+  body {
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+  }
+  a:link, a:visited {
+    text-decoration: none;
+    color: #457B9D;
+    cursor: pointer;
+}
+a:hover{
+  box-shadow: 0 0 1px #1D3557;
+}
+  /* 2. Navbar */
+  /* .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    color: #457B9D;
+  }
+  .navbar .logo {
+    font-family: "Delius Unicase", cursive;
+    font-size: 1.75rem;
+    font-weight: 700;
+  }
+  .navbar ul {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    font-size: 1.125rem;
+  } */
+  
+  /* 3. Abstract background circles */
+  .background div {
+    position: absolute;
+    border-radius: 50%;
+    animation: float 6s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-1rem); }
+  }
+  .circle-first {
+    top: 1rem;
+    left: 1rem;
+    width: 25rem;  max-width: 400px;
+    height: 25rem; max-height: 400px;
+    background: #A8DADC;
+    animation-delay: 0;
+  }
+  .circle-second {
+    top: -6rem;
+    right: -3rem;
+    width: 22rem;  max-width: 350px;
+    height: 22rem; max-height: 350px;
+    background: #457B9D;
+    animation-delay: 2s;
+  }
+  .circle-third {
+    bottom: -1.25rem;
+    left: -1.25rem;
+    width: 15.625rem;  /* 250px */
+    max-width: 250px;
+    height: 15.625rem;
+    max-height: 250px;
+    background: #E63946;
+    animation-delay: 4s;
+  }
+  .circle-fourth {
+    top: 12.5rem;
+    right: -1.875rem;
+    width: 12.5rem;   /* 200px */
+    max-width: 200px;
+    height: 12.5rem;
+    max-height: 200px;
+    background: #D9D9D9;
+    animation-delay: 1s;
+  }
+  
+
+  
+  /* 5. Login form */
+  .login-form {
+    margin: 5rem auto 0;
+    padding: 2rem;
+    width: 30%;
+    max-width: 400px;
+    background: #1D3557;
+    border-radius: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .login-form .login-header {
+    color: #F1FAEE;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  .login-form .login-detail {
+    width: 70%;
+    max-width: 90%;
+    height: 2.5rem;
+    margin-bottom: 1.875rem;
+    padding: 0 0.625rem;
+    border: 0.125rem solid #457B9D;
+    border-radius: 1rem;
+    background: transparent;
+    color: #F1FAEE;
+    text-align: center;
+  }
+  .login-form .login-detail::placeholder {
+    color: #F1FAEE;
+    opacity: 1;
+  }
+  .login-form .login-button {
+    width: 5rem;
+    height: 2.5rem;
+    margin-bottom: 1.875rem;
+    border: 0.125rem solid #457B9D;
+    border-radius: 1rem;
+    background: transparent;
+    color: #F1FAEE;
+    cursor: pointer;
+  }
+  .login-form p {
+    color: #F1FAEE;
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* 6. Footer */
+  /* .footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 12.5rem; 
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .footer p {
+    position: absolute;
+    bottom: 1.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #A8DADC;
+    font-size: 1.125rem;
+    z-index: 1;
+  }
+  .footer-bg {
+    position: absolute;
+    bottom: -2.5rem;
+    left: 0;
+    width: 100%;
+    height: auto;
+    pointer-events: none;
+  } */
+  
+  /* 7. Mobile & Tablet tweaks */
+  @media (max-width: 1024px) {
+    .add-task {
+      width: 90%;
+      padding: 2rem 1rem;
+    }
+    .login-form {
+      width: 90%;
+      margin-top: 3rem;
+      padding: 2rem 1rem;
+    }
+  }
+  @media (max-width: 768px) {
+    .navbar ul {
+      gap: 1rem;
+      font-size: 1rem;
+    }
+    .navbar {
+      padding: 1rem;
+    }
+    .circle-first  { width: 18rem; height: 18rem; top: 1rem; left: 1rem; }
+    .circle-second { width: 16rem; height: 16rem; top: -4rem; right: -2rem; }
+    .circle-third  { width: 12rem; height: 12rem; bottom: -1rem; left: -1rem; }
+    .circle-fourth { width: 10rem; height: 10rem; top: 8rem; right: -1rem; }
+  }
+  @media (max-width: 480px) {
+    .navbar ul { display: none; } /* collapse if needed */
+    .add-task img { height: 7.5rem; }
+    .login-form .login-header { font-size: 1.5rem; }
+    .login-form .login-detail,
+    .login-form .login-button { width: 80%; }
+  }
+  
+  /* .add-task{
+    margin: 4rem auto 0;
+    width: 80%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1.5rem;
+  }
+  .add-task img {
+    width: auto;
+    height: 9.375rem; 
+    margin-bottom: 1.25rem;
+  } */
+.add-task-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers label, inputs, and button horizontally */
+  padding: 5px;
+  width: 36%;
+  max-width: 400px;
+  margin: 0 auto;
+  height: 400px;
+  background-color: #457B9D;
+  border-radius: 16px;
+}
+
+.add-task-form label {
+  display: block;
+  width: 90%;
+  margin: 0.5rem auto;
+  color: white;
+  font-weight: bold;
+  text-align: center; /* Optional: center the label text */
+}
+
+.add-task-form .add-task-detail {
+  display: block;
+  width: 90%;
+  height: 2rem;
+  margin: 0.25rem auto;
+  border: 0.125rem solid #A8DADC;
+  border-radius: 1rem;
+  text-align: center;
+  color: #457B9D;
+  background-color: #F1FAEE;
+}
+
+.range-label {
+  display: block;
+  width: 90%;
+  margin: 0.5rem auto;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
+
+.range-slider {
+  width: 100%;
+  margin: 0.5rem 0;
+}
+
+/* Labels below the slider */
+
+
+/* .add-task-button {
+  width: 30%;
+  height: 2.5rem;
+  margin: 0.5rem auto;
+  border-radius: 1rem;
+  text-align: center;
+  color: #457B9D;
+  background-color: #F1FAEE;
+  cursor: pointer;
+} */
+.add-button {
+  width: 30%;
+  height: 2.5rem;
+  margin: 0.5rem auto;
+  border: 0.125rem solid #A8DADC;
+  border-radius: 1rem;
+  text-align: center;
+  color: #457B9D;
+  background-color: #F1FAEE;
+  cursor: pointer;
+}
+
+  .view-task {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 95%;
+    margin: 1rem auto;
+    padding: 1rem;
+    border: 1px solid #cce5d0;
+    border-radius: 12px;
+    background-color: #f5fdf4;
+  }
+  
+  .task-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .task-pri-details {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .task-checkbox {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .task-name {
+    color: #1d3557;
+    font-size: 1.5rem;
+  }
+  
+  .task-sec-details {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .priority-badge {
+    background-color: #e63946;
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 1rem;
+  }
+
+  .priority-badge a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .deadline-badge {
+    background-color: #dff5e3;
+    color: #1d3557;
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 1rem;
+  }
+  
+  .task-icons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .icon {
+    color: #1d3557;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+/* Edit task Form */
+.edit-task-form {
+  max-width: 400px;
+  margin-top: 5rem;
+  padding: 2rem 2rem;
+  background-color: #457B9D;
+  border-radius: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  color: #F1FAEE;
+  font-family: "Tuffy", sans-serif;
+}
+
+.edit-task-form h2 {
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.edit-task-form input[type="text"],
+.edit-task-form input[type="date"],
+.edit-task-form input[type="number"],  /* Added this line */
+.edit-task-form select {
+  height: 2.5rem;
+  border: 0.125rem solid #A8DADC;
+  border-radius: 1rem;
+  padding: 0 0.75rem;
+  font-size: 1rem;
+  color: #457B9D;
+  background-color: #F1FAEE;
+}
+
+.edit-task-form input::placeholder,
+.edit-task-form select {
+  color: #457B9D;
+  opacity: 1;
+}
+
+.edit-task-form button {
+  margin-top: 1rem;
+  height: 2.5rem;
+  background-color: #F1FAEE;
+  color: #457B9D;
+  border: 0.125rem solid #A8DADC;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.edit-task-form button:hover {
+  background-color: #A8DADC;
+  color: #1D3557;
+}

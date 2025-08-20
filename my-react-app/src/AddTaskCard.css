@@ -1,0 +1,45 @@
+.add-task-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers label, inputs, and button horizontally */
+  padding: 5px;
+  width: 36%;
+  max-width: 400px;
+  margin: 5rem auto;
+  height: fit-content;
+  background-color: #457B9D;
+  border-radius: 16px;
+}
+
+.add-task-form label {
+  display: block;
+  width: 90%;
+  margin: 0.5rem auto;
+  color: white;
+  font-weight: bold;
+  text-align: center; /* Optional: center the label text */
+}
+
+.add-task-form .add-task-detail {
+  display: block;
+  width: 90%;
+  height: 2rem;
+  margin: 0.25rem auto;
+  border: 0.125rem solid #A8DADC;
+  border-radius: 1rem;
+  text-align: center;
+  color: #457B9D;
+  background-color: #F1FAEE;
+}
+
+.add-task-button {
+  width: 5rem;
+  height: 2.5rem;
+  margin: 0.5rem auto;
+  border-radius: 1rem;
+  text-align: center;
+  color: #457B9D;
+  background-color: #F1FAEE;
+  cursor: pointer;
+  border: 0.125rem solid #A8DADC;
+}
