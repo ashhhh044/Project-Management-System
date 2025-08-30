@@ -52,9 +52,9 @@ Usage
 * Add Projects: Click “Add Project” on the dashboard.
 * Manage Tasks: Within each project, create or edit tasks.
 * Track Progress: Mark tasks as complete to update project status.
+* User authentication with roles (Admin, Team Member)
+* Task prioritisation and deadlines
 
 Future Improvements
 
-* User authentication with roles (Admin, Team Member)
-* Task prioritisation and deadlines
 * Notifications for task updates
