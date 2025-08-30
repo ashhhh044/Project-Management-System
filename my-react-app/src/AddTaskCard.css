@@ -1,7 +1,7 @@
 .add-task-form {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centers label, inputs, and button horizontally */
+  align-items: center; 
   padding: 5px;
   width: 36%;
   max-width: 400px;
@@ -17,7 +17,7 @@
   margin: 0.5rem auto;
   color: white;
   font-weight: bold;
-  text-align: center; /* Optional: center the label text */
+  text-align: center; 
 }
 
 .add-task-form .add-task-detail {

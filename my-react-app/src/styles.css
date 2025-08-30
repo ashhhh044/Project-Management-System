@@ -21,6 +21,7 @@
 a:hover{
   box-shadow: 0 0 1px #1D3557;
 }
+
   /* 2. Navbar */
   /* .navbar {
     display: flex;
@@ -251,21 +252,18 @@ a:hover{
   background-color: #F1FAEE;
 }
 
-.range-label {
-  display: block;
-  width: 90%;
+.add-project-btn{
+  width: max-content;
+  height: 2.5rem;
   margin: 0.5rem auto;
-  color: white;
-  font-weight: bold;
+  border: 0.125rem solid #A8DADC;  border-radius: 1rem;
   text-align: center;
+  color: #457B9D;
+  background-color: #F1FAEE;
+  cursor: pointer;
+  padding: 0 2px;
 }
 
-.range-slider {
-  width: 100%;
-  margin: 0.5rem 0;
-}
-
-/* Labels below the slider */
 
 
 /* .add-task-button {

@@ -18,12 +18,10 @@ function Signin() {
     e.preventDefault();
     setError('');
 
-    // Password length check first
     if (formData.password.length < 8) {
       return setError('Password must be at least 8 characters long');
     }
 
-    // Password match check second
     if (formData.password !== formData.confirmPassword) {
       return setError('Passwords do not match');
     }

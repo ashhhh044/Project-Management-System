@@ -25,7 +25,7 @@ function EditMember() {
       })
       .catch(err => {
         alert(err.message);
-        navigate('/view-members'); // redirect on error
+        navigate('/view-members'); 
       });
   }, [id, navigate]);
 

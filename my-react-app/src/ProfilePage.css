@@ -1,0 +1,63 @@
+.profile-page-container {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 1rem;
+  font-family: "Tuffy", sans-serif;
+}
+
+.profile-card {
+  background-color: #457B9D;
+  color: #F1FAEE;
+  padding: 1.5rem;
+  border-radius: 16px;
+  text-align: center;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.profile-card h2 {
+  font-size: 1.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.profile-card p {
+  margin: 0.25rem 0;
+  font-size: 1rem;
+}
+
+.profile-section {
+  margin-bottom: 2rem;
+}
+
+.profile-section h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: #1D3557;
+}
+
+.project-list {
+  list-style: none;
+  padding: 0;
+}
+
+.project-item {
+  background-color: #f5fdf4;
+  color: #1D3557;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  margin-bottom: 0.5rem;
+  border: 1px solid #cce5d0;
+}
+
+.task-card {
+  background-color: #f5fdf4;
+  color: #1D3557;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  border: 1px solid #cce5d0;
+}
+
+.task-card p {
+  margin: 0.25rem 0;
+}

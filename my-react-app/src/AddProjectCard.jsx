@@ -1,14 +1,14 @@
 import { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Footer from './Footer';
 import NavBar from './NavBar';
 import './AddTaskCard.css';
-import { useNavigate } from 'react-router-dom';
 
 function AddProjectCard() {
   const [projectName, setProjectName] = useState('');
   const [members, setMembers] = useState([]);
   const [selectedMembers, setSelectedMembers] = useState([]);
-  const [resourceFile, setResourceFile] = useState(null);
+  const [file, setFile] = useState(null);
   const [dueDate, setDueDate] = useState('');
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
@@ -34,40 +34,41 @@ function AddProjectCard() {
 
   const toggleMember = (id) => {
     setSelectedMembers(prev =>
-      prev.includes(id)
-        ? prev.filter(mid => mid !== id)
-        : [...prev, id]
+      prev.includes(id) ? prev.filter(mid => mid !== id) : [...prev, id]
     );
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     if (!projectName.trim()) return alert('Project name is required');
     if (selectedMembers.length === 0) return alert('Please select at least one member');
 
     const formData = new FormData();
     formData.append('project_name', projectName);
     formData.append('due_date', dueDate);
-    if (resourceFile) formData.append('resource', resourceFile);
+    if (file) formData.append('resource', file);
     formData.append('members', JSON.stringify(selectedMembers));
 
     try {
       const res = await fetch('http://localhost:5000/add-project', {
         method: 'POST',
         body: formData,
+        credentials: 'include',
       });
+
       const data = await res.json();
+
       if (res.ok) {
         alert(data.message);
-        navigate('/task-form');
+        navigate(`/`);
       } else {
         alert(data.error || 'Failed to add project');
       }
     } catch (err) {
-      console.error(err);
+      console.error('Error adding project:', err);
       alert('Error adding project');
     }
+    
   };
 
   return (
@@ -82,23 +83,16 @@ function AddProjectCard() {
           onChange={(e) => setProjectName(e.target.value)}
           required
         />
-
-        {/* Custom Dropdown for Members */}
-        <div
-          className="add-task-detail"
-          ref={dropdownRef}
-          style={{ position: 'relative', cursor: 'pointer' }}
-        >
+        <div ref={dropdownRef} style={{ position: 'relative', cursor: 'pointer' }} className="add-task-detail">
           <div
             onClick={() => setDropdownOpen(!dropdownOpen)}
             style={{
-              
               padding: '8px',
               borderRadius: '4px',
               minHeight: '36px',
               display: 'flex',
               alignItems: 'center',
-              justifyContent: 'space-between'
+              justifyContent: 'space-between',
             }}
           >
             {selectedMembers.length > 0
@@ -118,7 +112,7 @@ function AddProjectCard() {
                 background: '#fff',
                 maxHeight: '150px',
                 overflowY: 'auto',
-                zIndex: 1000
+                zIndex: 1000,
               }}
             >
               {members.map(member => (
@@ -126,7 +120,7 @@ function AddProjectCard() {
                   key={member.id}
                   style={{
                     padding: '8px',
-                    backgroundColor: selectedMembers.includes(member.id) ? '#d0ebff' : 'transparent'
+                    backgroundColor: selectedMembers.includes(member.id) ? '#d0ebff' : 'transparent',
                   }}
                   onClick={() => toggleMember(member.id)}
                 >
@@ -140,7 +134,7 @@ function AddProjectCard() {
         <input
           type="file"
           className="add-task-detail"
-          onChange={(e) => setResourceFile(e.target.files[0])}
+          onChange={(e) => setFile(e.target.files[0])}
         />
 
         <input

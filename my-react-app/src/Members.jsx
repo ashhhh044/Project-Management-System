@@ -1,50 +1,48 @@
 import { useState } from 'react';
 import Footer from './Footer';
 import NavBar from './NavBar';
-import './AddTaskCard.css';  // Assuming you want the same styles
-
+import './AddTaskCard.css'; 
 function Members() {
   const [memberName, setMemberName] = useState('');
   const [designation, setDesignation] = useState('');
   const [title, setTitle] = useState('');
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+ const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    if (!memberName || !designation || !title) {
-      alert('Please fill all fields');
-      return;
-    }
+  if (!memberName || memberName.trim() === "") {
+    alert("Member name is required");
+    return;
+  }
 
-    const newMember = {
-      member_name: memberName,
-      designation,
-      title,
-    };
-
-    try {
-      const res = await fetch('http://localhost:5000/add-member', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(newMember),
-      });
-
-      const data = await res.json();
-
-      if (res.ok) {
-        alert('Member added successfully');
-        setMemberName('');
-        setDesignation('');
-        setTitle('');
-      } else {
-        alert(data.error || 'Failed to add member');
-      }
-    } catch (error) {
-      alert('Error adding member');
-      console.error(error);
-    }
+  const newMember = {
+    member_name: memberName.trim(),
+    designation: designation.trim() || null,
+    title: title.trim() || null,
   };
 
+  try {
+    const res = await fetch("http://localhost:5000/members", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newMember),
+    });
+
+    if (!res.ok) {
+      const text = await res.text();
+      throw new Error(text);
+    }
+
+    const data = await res.json();
+    alert("Member added successfully");
+    setMemberName("");
+    setDesignation("");
+    setTitle("");
+  } catch (error) {
+    alert("Error adding member: " + error.message);
+    console.error(error);
+  }
+};
   return (
     <>
       <NavBar />

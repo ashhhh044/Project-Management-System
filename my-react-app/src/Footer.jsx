@@ -6,7 +6,7 @@ function Footer(){
         <>
             <footer id="footer" className="footer">
             <p>Copyright PlanEase 2025</p>
-            <img src="Frame 3.svg" alt="footer cloud" className="footer-bg"/>
+            {/* <img src="Frame 3.svg" alt="footer cloud" className="footer-bg"/> */}
             </footer>
         </>
     )

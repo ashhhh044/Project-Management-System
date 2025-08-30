@@ -1,35 +1,27 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import AddProject from "./AddProject";
 import Footer from "./Footer";
 import NavBar from "./NavBar";
 import ViewProjects from "./ViewProjects";
 
 function Index() {
   const navigate = useNavigate();
+  const [user, setUser] = useState(null);
 
-  // Check if user is logged in (token exists)
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (!token) {
-      // Redirect to login page if not logged in
-      navigate("/login");
-    }
+    fetch("http://localhost:5000/me", { credentials: "include" })
+      .then(res => res.json())
+      .then(data => setUser(data))
+      .catch(() => navigate("/login"));
   }, [navigate]);
 
-  // Handler to force login if user clicks anywhere and no token
-  const handleUserAction = () => {
-    const token = localStorage.getItem("token");
-    if (!token) {
-      navigate("/login");
-    }
-  };
+  if (!user) return <p>Loading...</p>;
 
   return (
-    <div onClick={handleUserAction}>
+    <div>
       <NavBar />
-      <ViewProjects />
-      <Footer />
+      <ViewProjects user={user} />
+      {/* <Footer /> */}
     </div>
   );
 }
