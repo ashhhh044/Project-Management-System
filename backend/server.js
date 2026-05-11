@@ -26,7 +26,7 @@ app.use(bodyParser.json());
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// uploads folder
+// Uploads Folder
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 // DB Connection 
